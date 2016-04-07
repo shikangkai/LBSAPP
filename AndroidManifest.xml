@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.holobor.lbsapp"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="19"
+        android:targetSdkVersion="19" />
+    
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_UPDATES" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" /> 
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<uses-permission android:name="android.permission.ACCESS_LOCATION"/> 
+	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/> 
+	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/> 
+	<uses-permission android:name="android.permission.INTERNET"/>
+	<uses-permission android:name="android.permission.WRITE_SETTINGS" />  
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+	<uses-permission android:name="android.permission.WAKE_LOCK" />
+	<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+	<uses-permission android:name="android.permission.READ_SMS"/>
+	<uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+	<uses-permission android:name="android.permission.CALL_PHONE"/>
+	<uses-permission android:name="android.permission.BATTERY_STATS"/>
+    
+	<!-- GPS定位使用 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />  
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />  
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />  
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />  
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />  
+    <uses-permission android:name="android.permission.INTERNET" />
+    
+    <application
+        android:installLocation="internalOnly"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        
+       <!-- 百度地图需要的信息 -->
+	    <meta-data  
+	        android:name="com.baidu.lbsapi.API_KEY"  
+	        android:value="BSoZ5WQbzG2IVR62ZhaiTMUC" />
+        
+        <!-- 用于数据采集上传的服务 -->
+        <service 
+            android:name="com.holobor.lbsapp.LBSCollectUploadService">
+        
+        </service>
+        
+        <!-- 用于调整飞行模式的服务 -->
+        <service 
+            android:name="com.holobor.lbsapp.SleepModeService">
+        
+        </service>
+        
+        <!-- 用于数据采集上传的服务 -->
+        <service 
+            android:name="com.holobor.lbsapp.DataCollectUploadService">
+        
+        </service>
+        
+        <!-- 用于采集心率的服务 -->
+        <service 
+            android:name="com.holobor.lbsapp.HeartRateService">
+        
+        </service>
+        
+        <!-- 用于GPS的服务 -->
+        <service 
+            android:name="com.holobor.lbsapp.GPSService">
+        
+        </service>
+        
+        <activity android:name="com.holobor.lbsapp.MainActivity">
+        	
+            <intent-filter>
+                
+                <action android:name="android.intent.action.MAIN" /> 
+                <category android:name="android.intent.category.LAUNCHER" /> 
+            </intent-filter>
+            
+        </activity>
+    
+        <!-- 自启动服务 -->
+    	<receiver android:name="com.holobor.lbsapp.ThreadObserveReveiver">
+    	    
+    	    <intent-filter android:priority="1000">
+    	        <action android:name="android.intent.action.BOOT_COMPLETED"/>
+         		<category android:name="android.intent.category.DEFAULT" />
+    	    </intent-filter>
+    	</receiver>
+    	 
+    	<activity 
+    	    android:name="com.holobor.lbsapp.CodeActivity" />
+    </application>
+
+</manifest>

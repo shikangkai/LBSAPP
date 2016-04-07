@@ -1,0 +1,79 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LBSActivity" >
+    
+    <TextView 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/holo_red_light"
+        android:textColor="@android:color/white"
+        android:gravity="center"
+        android:textSize="16dp"
+        android:padding="8dp"
+        android:text="数据收集上传服务是否运行\t: 否"
+        android:visibility="invisible"
+        android:id="@+id/text_notice" />
+    
+    <LinearLayout 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+	    android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:id="@+id/layout_bottom" >
+        
+	    <Button
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1"
+	        android:text="采集数据上传"
+	        android:background="@drawable/btn_upload"
+	        android:textColor="@android:color/white"
+	        android:textSize="16dp"
+	        android:padding="16dp"
+	        android:id="@+id/button_upload" />
+	    <Button
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1"
+	        android:text="显示二维码"
+	        android:background="@drawable/btn_qrcode"
+	        android:textColor="@android:color/white"
+	        android:textSize="16dp"
+	        android:padding="16dp"
+	        android:visibility="gone"
+	        android:id="@+id/button_qrcode" />
+        
+    </LinearLayout>
+    
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="刷新统计数据"
+        android:background="@drawable/btn_refresh"
+        android:textColor="@android:color/white"
+        android:layout_above="@id/layout_bottom"
+        android:textSize="16dp"
+        android:padding="16dp"
+        android:id="@+id/button_refresh" />
+
+   
+
+    <ScrollView 
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+	    android:layout_below="@id/text_notice"
+	    android:scrollbars="none"
+        android:layout_above="@id/button_refresh" >
+        
+	    <TextView 
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:gravity="left|top"
+	        android:textSize="16dp"
+	        android:padding="8dp"
+	        android:id="@+id/text_info" />
+    </ScrollView>
+    
+</RelativeLayout>

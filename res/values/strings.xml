@@ -1,0 +1,8 @@
+<resources>
+
+    <string name="app_name">LBSAPP</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="toast_internet_error">网络连接错误</string>
+
+</resources>
